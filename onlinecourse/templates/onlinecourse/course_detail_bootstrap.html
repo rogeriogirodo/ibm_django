@@ -57,6 +57,8 @@
         <!-- A collapse example here: -->
         {% if user.is_authenticated %}
 
+            {% if course.question_set %}
+            
                 <br/>
                 <button class="btn btn-info btn-block" data-toggle="collapse" data-target="#exam">Start Exam</button>
                 
@@ -74,7 +76,7 @@
                     -->
 
                     <!-- A choice submission form example -->
-                    <form id="questionform-{{question.id}" action="point to a submit view" method="post">
+                    <form id="questionform" action="{% url 'onlinecourse:submit' course.id %}" method="post">
 
                         {% for question in course.question_set.all %}
 
@@ -105,13 +107,12 @@
                 <!--Check here to see more details Bootstrap checkbox
                     https://www.w3schools.com/bootstrap4/bootstrap_forms_inputs.asp-->
             
-            {% if course.question_set.length > 0 %}
-                    XX
             {% else %}
                 <p>No questions are available.</p>
             {% endif %}
 
         {% endif %}
     </div>
+    <br/>
 </body>
 </html>

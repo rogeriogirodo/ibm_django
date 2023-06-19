@@ -139,3 +139,5 @@ class Submission(models.Model):
     choices = models.ManyToManyField(Choice)
 #    Other fields and methods you would like to design
     date_submitted = models.DateField(default=now)
+    grade = models.FloatField(default=0)
+    
